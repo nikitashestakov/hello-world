@@ -1,12 +1,16 @@
 nginx:
     build: nginx/
     ports:
-      - "80:80"
+      - "8880:80"
     links:
       - consul:consul
     restart: always
 hello:
     build: hello/
+    links:
+      - consul:consul
+goodbye:
+    build: goodbye/
     links:
       - consul:consul
 world:
